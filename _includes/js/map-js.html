@@ -155,10 +155,35 @@
         layer.bindPopup(popupTemplate);
     }
     /* function to add objects to map */
+
+
+
+function getColor(feature){
+  switch (feature.properties["subject"]) {
+            case 'ART':
+                return  'orange';
+            case 'ZAW':
+                return 'green';
+            case 'HST':
+                return 'blue';
+            case 'BOT':
+                return 'purple';
+            case 'SCI':
+                return 'brown';
+            case 'CMU':
+                return 'lavender';
+            case 'NAT':
+                return 'pink';
+            default:
+              return 'black';
+          }
+        }
+
+
     function objectMarkers(feature,latlng){
    var marker = new L.CircleMarker(latlng, {
             radius: 5,
-            color: "black",
+            color: getColor (feature,)
             alt: feature.properties.title,
         });
     return marker;
